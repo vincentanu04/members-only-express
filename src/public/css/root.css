@@ -27,11 +27,15 @@
   transition: 0.3s ease;
 }
 
-.button_style:hover,
-.button_style:focus {
+.button_style:hover:not(:disabled),
+.button_style:focus:not(:disabled) {
   cursor: pointer;
   transform: translateY(-0.2em);
   box-shadow: 0 0.5em 0.5em -0.4em var(--primary-clr);
+}
+
+button:disabled {
+  background-color: gray;
 }
 
 form {

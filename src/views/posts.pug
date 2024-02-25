@@ -23,5 +23,5 @@ html(lang="en")
     main
       .main_header
         h1= `Welcome, ${user ? user.username : 'Guest'}!`
-        button.button_style  New Post
+        button.button_style(disabled=(user ? 'disabled' : ''))  New Post
 
