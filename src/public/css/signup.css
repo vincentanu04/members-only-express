@@ -1,0 +1,53 @@
+@import './root.css';
+
+.hero {
+  height: 100vh;
+  display: flex;
+  background-color: var(--bg-clr);
+}
+
+
+.links {
+  margin-top: 0.1rem;
+  display: grid;
+  place-items: center;
+}
+
+.links p {
+  color: slategray;
+  font-size: 0.75em;
+}
+
+.links a {
+  color: var(--underline-clr);
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.hero_left {
+  width: 40vw;
+  display: grid;
+  place-items: center;
+}
+
+.hero_left_container {
+  width: 60%;
+}
+
+.hero_right {
+  width: 60vw;
+  background: radial-gradient(
+    var(--primary-clr),
+    var(--accent-clr),
+    var(--secondary-clr)
+  );
+  display: grid;
+  place-items: center;
+}
+
+.hero_right h1 {
+  font-size: 3.5em;
+}

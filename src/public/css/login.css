@@ -1,0 +1,25 @@
+@import './root.css';
+
+body {
+  background-color: var(--accent-clr);
+  background-image: url('../images/hero-bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: multiply;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.form {
+  background-color: var(--bg-clr);
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px var(--accent-clr);
+  border: 3px solid var(--secondary-clr);
+}

@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="/css/login.css")
+    title Log In
+  body 
+    .form
+      h1 Log In
+      form(method='post') 
+        .field
+          input(type="text", name="username",placeholder="Username", spellcheck='off', value=username)
+          p.errorMsg= usernameErr ? '* ' + usernameErr.msg : ''
+
+        .field
+          input(type="password", name="password", placeholder='Password')
+          p.errorMsg= passwordErr ? '* ' + passwordErr.msg : '' 
+
+        button.button_style(type="submit") Log In

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --primary-clr: #bfb045;
+  --secondary-clr: #9dd990;
+  --accent-clr: #78d083;
+  --text-clr: #110e06;
+  --bg-clr: #fcfbf5;
+  --underline-clr: rgb(48, 48, 194);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.button_style {
+  padding: 0.5em 1em;
+  width: 100%;
+  border-radius: 4px;
+  border: none;
+  background: var(--primary-clr);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: medium;
+  transition: 0.3s ease;
+}
+
+.button_style:hover,
+.button_style:focus {
+  cursor: pointer;
+  transform: translateY(-0.2em);
+  box-shadow: 0 0.5em 0.5em -0.4em var(--primary-clr);
+}
+
+form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 0.7em;
+}
+
+form button {
+  margin-top: 1.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.25em;
+  border: none;
+  border-bottom: 1.5px solid lightgray;
+  transition: border-bottom 0.3s ease;
+  font-size: 0.9em;
+  background: var(--bg-clr);
+}
+
+input:focus,
+input:active {
+  outline: none;
+  border-bottom: 1.5px solid gray;
+}

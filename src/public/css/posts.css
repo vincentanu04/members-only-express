@@ -1,0 +1,57 @@
+@import './root.css';
+
+.navbar {
+  padding: 0.5em 5em;
+  border-bottom: 1.25px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar h1 {
+  color: var(--text-clr);
+  font-size: 1.75em;
+}
+
+.spanPrimary {
+  color: var(--primary-clr);
+}
+
+main {
+  padding: 3em 5em;
+}
+
+.main_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button_style {
+  width: fit-content;
+  padding: 0.5em 2em;
+}
+
+.profile_details {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+}
+.profile_details_text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.profile_details_text p {
+  font-size: 0.9em;
+  color: slategray;
+}
+
+.profile_details img {
+  width: 45px;
+}

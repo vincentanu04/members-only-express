@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="/css/posts.css")
+    title Posts
+  body 
+    .navbar 
+      a(href='/posts')
+        h1
+          span.spanPrimary Members
+          span Only
+      
+      .profile  
+        .profile_details
+          .profile_details_text
+            h3=user ? user.username : 'Guest'
+            p=user ? (user.member === true ? 'Member' : 'Not a Member') : 'Not a Member'
+
+          img(src="/images/profile.svg", alt="Profile Icon")
+
+    main
+      .main_header
+        h1= `Welcome, ${user ? user.username : 'Guest'}!`
+        button.button_style  New Post
+
