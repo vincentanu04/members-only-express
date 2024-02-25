@@ -1,7 +1,7 @@
 @import './root.css';
 
 .navbar {
-  padding: 0.5em 5em;
+  padding: 0.5em 5.5em;
   border-bottom: 1.25px solid lightgray;
   display: flex;
   justify-content: space-between;
@@ -22,7 +22,7 @@ a {
 }
 
 main {
-  padding: 3em 5em;
+  padding: 3em 5.5em;
 }
 
 .main_header {
@@ -30,9 +30,38 @@ main {
   justify-content: space-between;
 }
 
-.button_style {
+main .button_style {
   width: fit-content;
   padding: 0.5em 2em;
+}
+
+.navbar .button_style {
+  background-color: var(--accent-clr);
+}
+
+.navbar .button_style:hover:not(:disabled),
+.navbar .button_style:focus:not(:disabled) {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--accent-clr);
+}
+
+.navbar .secondary .button_style {
+  background-color: var(--secondary-clr);
+}
+
+.secondary .button_style:hover:not(:disabled),
+.secondary .button_style:focus:not(:disabled) {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--secondary-clr);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1em;
 }
 
 .profile_details {

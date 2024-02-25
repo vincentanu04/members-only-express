@@ -12,7 +12,20 @@ html(lang="en")
           span.spanPrimary Members
           span Only
       
-      .profile  
+      .profile
+        .buttons 
+          if !user 
+            a(href='/sign-up')
+              button.button_style Sign Up
+            a.secondary(href='/log-in')
+              button.button_style Log In
+
+          else 
+            a(href='')
+              button.button_style Be a Member
+            a.secondary(href='/log-out')
+              button.button_style Log out
+
         .profile_details
           .profile_details_text
             h3=user ? user.username : 'Guest'
@@ -23,5 +36,5 @@ html(lang="en")
     main
       .main_header
         h1= `Welcome, ${user ? user.username : 'Guest'}!`
-        button.button_style(disabled=(user ? 'disabled' : ''))  New Post
+        button.button_style(disabled=user ? false : true) New Post
 

@@ -133,3 +133,13 @@ exports.login_post = [
     failureRedirect: '/posts',
   }),
 ];
+
+exports.logout_get = asyncHandler(async (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.redirect('/sign-up');
+  });
+});
