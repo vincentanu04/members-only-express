@@ -27,8 +27,7 @@
   transition: 0.3s ease;
 }
 
-.button_style:hover:not(:disabled),
-.button_style:focus:not(:disabled) {
+.button_style:hover:not(:disabled) {
   cursor: pointer;
   transform: translateY(-0.2em);
   box-shadow: 0 0.5em 0.5em -0.4em var(--primary-clr);
@@ -68,4 +67,20 @@ input:focus,
 input:active {
   outline: none;
   border-bottom: 1.5px solid gray;
+}
+
+textarea {
+  width: 100%;
+  height: 5em;
+  padding: 0.25em;
+  border: 1.5px solid lightgray;
+  transition: border 0.3s ease;
+  font-size: 0.9em;
+  background: var(--bg-clr);
+}
+
+textarea:focus,
+textarea:active {
+  outline: none;
+  border: 1.5px solid gray;
 }

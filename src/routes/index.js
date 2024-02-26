@@ -15,4 +15,8 @@ router.post('/log-in', formController.login_post);
 router.get('/log-out', formController.logout_get);
 
 router.get('/posts', postController.index);
+router.post('/posts/new', postController.create_post);
+
+router.post('/become-member', postController.become_member);
+
 module.exports = router;

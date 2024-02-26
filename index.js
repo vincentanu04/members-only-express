@@ -5,7 +5,7 @@ const indexRouter = require('./src/routes/index');
 const User = require('./src/models/user');
 
 const app = express();
-const port = process.env.port || 3001;
+const port = process.env.port || 3000;
 
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);

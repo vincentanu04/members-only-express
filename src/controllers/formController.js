@@ -70,10 +70,18 @@ exports.signup_post = [
     bcrypt.hash(req.body.username, 10, async (err, hashedPassword) => {
       if (err) next(err);
 
-      await User.create({
+      const newUser = new User({
         username: req.body.username,
         password: hashedPassword,
         member: false,
+      });
+
+      await newUser.save();
+      req.login(newUser, (err) => {
+        if (err) {
+          return next(err);
+        }
+        res.redirect('/posts');
       });
     });
   }),

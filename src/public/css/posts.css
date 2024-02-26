@@ -1,11 +1,20 @@
 @import './root.css';
 
+body {
+  background-color: var(--bg-clr);
+}
+
 .navbar {
   padding: 0.5em 5.5em;
   border-bottom: 1.25px solid lightgray;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-clr);
 }
 
 a {
@@ -32,10 +41,11 @@ main {
 
 main .button_style {
   width: fit-content;
-  padding: 0.5em 2em;
+  padding: 0.6em 2em;
+  height: fit-content;
 }
 
-.navbar .button_style {
+.navbar .button_style:not(:disabled) {
   background-color: var(--accent-clr);
 }
 
@@ -62,6 +72,11 @@ main .button_style {
 .buttons {
   display: flex;
   gap: 1em;
+  align-items: center;
+}
+
+.buttons button {
+  text-wrap: nowrap;
 }
 
 .profile_details {
@@ -83,4 +98,75 @@ main .button_style {
 
 .profile_details img {
   width: 45px;
+}
+
+form.hidden {
+  display: none;
+}
+
+form.visible {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  border-radius: 4px;
+  border: 2px solid var(--primary-clr);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: var(--bg-clr);
+  z-index: 9999999999;
+}
+
+#first {
+  margin-bottom: 1.5rem;
+}
+
+form h1 {
+  margin-bottom: 1rem;
+}
+
+.welcome {
+  margin-bottom: 4rem;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.post {
+  background: linear-gradient(
+    45deg,
+    var(--secondary-clr),
+    var(--accent-clr),
+    var(--primary-clr)
+  );
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.post h2 {
+  margin-bottom: 0.25rem;
+}
+
+.post .post_message {
+  background: var(--bg-clr);
+  padding: 0.25rem;
+  border: 1.5px solid lightgray;
+  border-radius: 4px;
+  margin-block: 0.5rem;
+  min-height: 8ch;
+}
+
+.post .note {
+  font-size: 0.8em;
+  color: rgb(82, 82, 82);
+  margin-top: 1rem;
+}
+
+#becomeMemberForm p {
+  margin-bottom: 1.5rem;
 }

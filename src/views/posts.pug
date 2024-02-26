@@ -5,6 +5,33 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet", href="/css/posts.css")
     title Posts
+    script.
+      document.addEventListener('DOMContentLoaded', () => {
+        const body = document.querySelector('body')
+        const newPostButton = document.getElementById('newPostButton');
+        const newPostForm = document.getElementById('newPostForm');
+        const becomeMemberButton = document.getElementById('becomeMemberButton');
+        const becomeMemberForm = document.getElementById('becomeMemberForm');
+
+        newPostButton.addEventListener('click', (e) => {
+          e.stopPropagation();
+          newPostForm.classList.add('visible');
+        })
+
+        becomeMemberButton.addEventListener('click', (e) => {
+          e.stopPropagation();
+          becomeMemberForm.classList.add('visible');
+        })
+
+        document.addEventListener('click', (e) => {
+          const isClickInsideForm = newPostForm.contains(e.target) || becomeMemberForm.contains(e.target);
+
+          if (!isClickInsideForm) {
+            newPostForm.classList.remove('visible');
+            becomeMemberForm.classList.remove('visible');
+          }
+        });
+      })
   body 
     .navbar 
       a(href='/posts')
@@ -21,10 +48,20 @@ html(lang="en")
               button.button_style Log In
 
           else 
-            a(href='')
-              button.button_style Be a Member
+            button.button_style(id='becomeMemberButton', disabled=user.member) Be a Member
             a.secondary(href='/log-out')
               button.button_style Log out
+                
+            form.hidden(id='becomeMemberForm', method='post', action='become-member', class=answerErr ? 'visible' : 'hidden')
+              h1 Become a Member
+              p Are you sure you have what it takes to become a member? Then answer this! 
+              p What goes up but never comes down?
+
+              .field
+                input(type='text', placeholder='Answer', name='answer')
+                p.errorMsg= answerErr ? '* ' + answerErr.msg : '' 
+
+              button.button_style(type="submit") Submit
 
         .profile_details
           .profile_details_text
@@ -35,6 +72,37 @@ html(lang="en")
 
     main
       .main_header
-        h1= `Welcome, ${user ? user.username : 'Guest'}!`
-        button.button_style(disabled=user ? false : true) New Post
+        h1.welcome= `Welcome, ${user ? user.username : 'Guest'}!`
+
+        button.button_style(disabled=user ? false : true, id='newPostButton') New Post
+
+        form.hidden(id='newPostForm', method='post', action='/posts/new', class=(titleErr || messageErr) ? 'visible' : 'hidden')
+          h1 Create new post
+          .field
+            input(type="text", name="title", placeholder='Title')
+            p.errorMsg(id='first')= titleErr ? '* ' + titleErr.msg : '' 
+          .field 
+            textarea(name="message", placeholder='Message') 
+            p.errorMsg= messageErr ? '* ' + messageErr.msg : '' 
+
+          button.button_style(type="submit") Submit
+
+      .posts 
+        if messages
+          each message in messages 
+            .post 
+              h2=message.title
+              if user
+                p by #[em #{user.member ? message.user.username : 'Anonymous'}]
+                p.post_message=message.message
+                p Created on #[em #{user.member ? message.timestamp_formatted : 'month/dd/yy'}]
+                if !user.member
+                  p.note Note: Become a member to see the creator and date of creation.
+
+              else 
+                p by #[em Anonymous]
+                p.post_message=message.message
+                p Created on #[em month/dd/yy]
+                p.note Note: Become a member to see the creator and date of creation.
+
 
